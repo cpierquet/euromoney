@@ -4,10 +4,11 @@
 % pdf from domain public svg (user frankes in openclipart), see https://openclipart.org/artist/frankes
 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{euromoney}[2024/09/06 0.1.0 Insert Euro coins and banknotes]
-% 0.1.0	Initial version
+\ProvidesPackage{euromoney}[2024/09/07 0.1.1 Insert Euro coins and banknotes]
 
-%------Option(s)
+%------History
+% 0.1.1	New filenames, according to TL rules
+% 0.1.0	Initial version
 
 %------Packages
 \RequirePackage{xstring}
@@ -74,7 +75,7 @@
 		{full}{\def\monnaiessuffixe{}}%
 		{nb}{\def\monnaiessuffixe{simplebw}}%
 	}%
-	\includegraphics[#2]{#3euro\monnaiessuffixe}%
+	\includegraphics[#2]{euromoney-#3euro\monnaiessuffixe}%
 }
 
 \NewDocumentCommand\BilletsEuro{ O{} m }{%
@@ -129,7 +130,7 @@
 						}%
 					\begin{tikzpicture}
 						\foreach \i in {1,...,\tmpnbpieces}{%
-							\draw (0,{(\i-1)*\tmpoffsetvmonnaies}) node[anchor=south west,inner sep=0pt] {\includegraphics[height=\dimexpr\monnaiesechellerelative\tmphautmonnaies\relax]{\monnaiessomme\monnaiessuffixe}} ;%
+							\draw (0,{(\i-1)*\tmpoffsetvmonnaies}) node[anchor=south west,inner sep=0pt] {\includegraphics[height=\dimexpr\monnaiesechellerelative\tmphautmonnaies\relax]{euromoney-\monnaiessomme\monnaiessuffixe}} ;%
 						}%
 					\end{tikzpicture}%
 				}%
@@ -170,7 +171,7 @@
 							\def\monnaiesechellerelative{1}%
 						}%
 					\foreach \ii in {1,...,\tmpnbpieces}{%
-						\draw ({(\i-1)*\tmpoffsethmonnaies},{(\ii-1)*\tmpoffsetvmonnaies}) node[anchor=south west,inner sep=0pt] {\includegraphics[height=\dimexpr\monnaiesechellerelative\tmphautmonnaies\relax]{\monnaiessomme\monnaiessuffixe}} ;%
+						\draw ({(\i-1)*\tmpoffsethmonnaies},{(\ii-1)*\tmpoffsetvmonnaies}) node[anchor=south west,inner sep=0pt] {\includegraphics[height=\dimexpr\monnaiesechellerelative\tmphautmonnaies\relax]{euromoney-\monnaiessomme\monnaiessuffixe}} ;%
 						}%
 					}%
 				\end{tikzpicture}%
@@ -218,7 +219,7 @@
 						{%
 							\def\monnaiesechellerelative{1}%
 						}%
-					\draw ({-\i*\tmpoffsethmonnaies},{-\i*\tmpoffsetvmonnaies}) node[above right=0pt,inner sep=0pt,outer sep=0pt,rotate={\fpeval{90-0.5*\piecebilletrotation*\nbeventailbillets+(\i-1)*\piecebilletrotation}}] {\includegraphics[height=\dimexpr\monnaiesechellerelative\tmphautmonnaies\relax]{\monnaiessomme\monnaiessuffixe}} ;%
+					\draw ({-\i*\tmpoffsethmonnaies},{-\i*\tmpoffsetvmonnaies}) node[above right=0pt,inner sep=0pt,outer sep=0pt,rotate={\fpeval{90-0.5*\piecebilletrotation*\nbeventailbillets+(\i-1)*\piecebilletrotation}}] {\includegraphics[height=\dimexpr\monnaiesechellerelative\tmphautmonnaies\relax]{euromoney-\monnaiessomme\monnaiessuffixe}} ;%
 				}%
 			\end{tikzpicture}%
 		}%
@@ -289,7 +290,7 @@
 						}%
 					\begin{tikzpicture}
 						\foreach \i in {1,...,\tmpnbpieces}{%
-							\draw (0,{(\i-1)*\tmpoffsetvmonnaies}) node[anchor=south west,inner sep=0pt] {\includegraphics[height=\dimexpr\monnaiesechellerelative\tmphautmonnaies\relax]{\monnaiessomme\monnaiessuffixe}} ;%
+							\draw (0,{(\i-1)*\tmpoffsetvmonnaies}) node[anchor=south west,inner sep=0pt] {\includegraphics[height=\dimexpr\monnaiesechellerelative\tmphautmonnaies\relax]{euromoney-\monnaiessomme\monnaiessuffixe}} ;%
 						}%
 					\end{tikzpicture}%
 				}%
@@ -330,7 +331,7 @@
 							\def\monnaiesechellerelative{1}%
 						}%
 					\foreach \ii in {1,...,\tmpnbpieces}{%
-						\draw ({(\i-1)*\tmpoffsethmonnaies},{(\ii-1)*\tmpoffsetvmonnaies}) node[anchor=south west,inner sep=0pt] {\includegraphics[height=\dimexpr\monnaiesechellerelative\tmphautmonnaies\relax]{\monnaiessomme\monnaiessuffixe}} ;%
+						\draw ({(\i-1)*\tmpoffsethmonnaies},{(\ii-1)*\tmpoffsetvmonnaies}) node[anchor=south west,inner sep=0pt] {\includegraphics[height=\dimexpr\monnaiesechellerelative\tmphautmonnaies\relax]{euromoney-\monnaiessomme\monnaiessuffixe}} ;%
 						}%
 					}%
 				\end{tikzpicture}%
@@ -378,7 +379,7 @@
 						{%
 							\def\monnaiesechellerelative{1}%
 						}%
-					\draw ({-\i*\tmpoffsethmonnaies},{-\i*\tmpoffsetvmonnaies}) node[above right=0pt,inner sep=0pt,outer sep=0pt,rotate={\fpeval{90-0.5*\piecebilletrotation*\nbeventailbillets+(\i-1)*\piecebilletrotation}}] {\includegraphics[height=\dimexpr\monnaiesechellerelative\tmphautmonnaies\relax]{\monnaiessomme\monnaiessuffixe}} ;%
+					\draw ({-\i*\tmpoffsethmonnaies},{-\i*\tmpoffsetvmonnaies}) node[above right=0pt,inner sep=0pt,outer sep=0pt,rotate={\fpeval{90-0.5*\piecebilletrotation*\nbeventailbillets+(\i-1)*\piecebilletrotation}}] {\includegraphics[height=\dimexpr\monnaiesechellerelative\tmphautmonnaies\relax]{euromoney-\monnaiessomme\monnaiessuffixe}} ;%
 				}%
 			\end{tikzpicture}%
 		}%
@@ -439,16 +440,16 @@
 			{%
 				\IfSubStr{\tmpempilpieces}{*}%
 					{%
-						\includegraphics[height=\dimexpr\monnaiesechellerelative\tmphautmonnaies\relax]{\monnaiessomme\monnaiessuffixe}%
+						\includegraphics[height=\dimexpr\monnaiesechellerelative\tmphautmonnaies\relax]{euromoney-\monnaiessomme\monnaiessuffixe}%
 						\ifnum\tmpnbpieces=1\else%
 							\foreach \i in {1,...,\inteval{\tmpnbpieces-1}}{%
 								\ifdim\tmpoffsethmonnaies>0pt\relax\hspace*{\dimexpr\tmpoffsethmonnaies-\monnaiesechellerelative\tmphautmonnaies\relax}\fi%
-								\includegraphics[height=\dimexpr\monnaiesechellerelative\tmphautmonnaies\relax]{\monnaiessomme\monnaiessuffixe}%
+								\includegraphics[height=\dimexpr\monnaiesechellerelative\tmphautmonnaies\relax]{euromoney-\monnaiessomme\monnaiessuffixe}%
 							}%
 						\fi%
 					}%
 					{%
-						\includegraphics[height=\dimexpr\monnaiesechellerelative\tmphautmonnaies\relax]{\monnaiessomme\monnaiessuffixe}%
+						\includegraphics[height=\dimexpr\monnaiesechellerelative\tmphautmonnaies\relax]{euromoney-\monnaiessomme\monnaiessuffixe}%
 					}%
 					\ifnum\i<\listetmppieceslen%
 						\ifdim\tmpoffsethmonnaies>0pt\relax\hspace*{\dimexpr\tmpoffsethmonnaies-\monnaiesechellerelative\tmphautmonnaies\relax}%
@@ -458,7 +459,7 @@
 			{%
 				\begin{tikzpicture}
 					\foreach \i in {1,...,\tmpnbpieces}{%
-						\draw (0,{(\i-1)*\tmpoffsetvmonnaies}) node[inner sep=0pt] {\includegraphics[height=\dimexpr\monnaiesechellerelative\tmphautmonnaies\relax]{\monnaiessomme\monnaiessuffixe}} ;%
+						\draw (0,{(\i-1)*\tmpoffsetvmonnaies}) node[inner sep=0pt] {\includegraphics[height=\dimexpr\monnaiesechellerelative\tmphautmonnaies\relax]{euromoney-\monnaiessomme\monnaiessuffixe}} ;%
 					}%
 				\end{tikzpicture}%
 			}%
@@ -519,16 +520,16 @@
 			{%
 				\IfSubStr{\tmpempilpieces}{*}%
 					{%
-						\includegraphics[height=\dimexpr\monnaiesechellerelative\tmphautmonnaies\relax]{\monnaiessomme\monnaiessuffixe}%
+						\includegraphics[height=\dimexpr\monnaiesechellerelative\tmphautmonnaies\relax]{euromoney-\monnaiessomme\monnaiessuffixe}%
 						\ifnum\tmpnbpieces=1\else%
 							\foreach \i in {1,...,\inteval{\tmpnbpieces-1}}{%
 								\ifdim\tmpoffsethmonnaies>0pt\relax\hspace*{\dimexpr\tmpoffsethmonnaies-\monnaiesechellerelative\tmphautmonnaies\relax}\fi%
-								\includegraphics[height=\dimexpr\monnaiesechellerelative\tmphautmonnaies\relax]{\monnaiessomme\monnaiessuffixe}%
+								\includegraphics[height=\dimexpr\monnaiesechellerelative\tmphautmonnaies\relax]{euromoney-\monnaiessomme\monnaiessuffixe}%
 							}%
 						\fi%
 					}%
 					{%
-						\includegraphics[height=\dimexpr\monnaiesechellerelative\tmphautmonnaies\relax]{\monnaiessomme\monnaiessuffixe}%
+						\includegraphics[height=\dimexpr\monnaiesechellerelative\tmphautmonnaies\relax]{euromoney-\monnaiessomme\monnaiessuffixe}%
 					}%
 					\ifnum\i<\listetmppieceslen%
 						\ifdim\tmpoffsethmonnaies>0pt\relax\hspace*{\dimexpr\tmpoffsethmonnaies-\monnaiesechellerelative\tmphautmonnaies\relax}%
@@ -538,7 +539,7 @@
 			{%
 				\begin{tikzpicture}
 					\foreach \i in {1,...,\tmpnbpieces}{%
-						\draw (0,{(\i-1)*\tmpoffsetvmonnaies}) node[inner sep=0pt] {\includegraphics[height=\dimexpr\monnaiesechellerelative\tmphautmonnaies\relax]{\monnaiessomme\monnaiessuffixe}} ;%
+						\draw (0,{(\i-1)*\tmpoffsetvmonnaies}) node[inner sep=0pt] {\includegraphics[height=\dimexpr\monnaiesechellerelative\tmphautmonnaies\relax]{euromoney-\monnaiessomme\monnaiessuffixe}} ;%
 					}%
 				\end{tikzpicture}%
 			}%

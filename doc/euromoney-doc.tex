@@ -29,8 +29,8 @@
 \hypersetup{pdfborder=0 0 0}
 \usepackage[margin=2cm]{geometry}
 \setlength{\parindent}{0pt}
-\def\TPversion{0.1.0}
-\def\TPdate{06/09/2024}
+\def\TPversion{0.1.1}
+\def\TPdate{07/09/2024}
 \usepackage{tcolorbox}
 \tcbuselibrary{skins,hooks,listingsutf8}
 %\usepackage{soul}
@@ -207,7 +207,7 @@ It's possible to present multiple coins or multiples banknotes :
 
 \subsection{Global names}
 
-Each coin or bill is a vectorial pdf and there's three styles :
+Each coin or bill is a vectorial pdf, name \texttt{euromoney-<amount><suffix>} and there's three styles :
 
 \begin{itemize}
 	\item \MontreCode{full} colored version ;
@@ -224,9 +224,9 @@ Available basenames are :
 
 \begin{DemoCode}{}
 %manual insertion
-\includegraphics[height=25.75mm]{2euro}%         w/o suffix
-\includegraphics[height=25.75mm]{2eurosimple}%   with simple suffix
-\includegraphics[height=25.75mm]{2eurosimplebw}% with simplebw suffix
+\includegraphics[height=25.75mm]{euromoney-2euro}%         w/o suffix
+\includegraphics[height=25.75mm]{euromoney-2eurosimple}%   with simple suffix
+\includegraphics[height=25.75mm]{euromoney-2eurosimplebw}% with simplebw suffix
 \end{DemoCode}
 
 \subsection{Size of graphics}
@@ -267,8 +267,18 @@ List of coins can be given within \MontreCode{3*2+4*1+2*0.2+4*0.1} for example.
 \end{DemoCode}
 
 \begin{DemoCode}{}
-%multiple coins, side by side, global height
+%multiple coins, side by side, global height, simple style
 \EuroCoins{2+1+0.5+0.2+0.1+0.05+0.02+0.01}
+\end{DemoCode}
+
+\begin{DemoCode}{}
+%multiple coins, side by side, global height, full style
+\EuroCoins[Style=full]{2+1+0.5+0.2+0.1+0.05+0.02+0.01}
+\end{DemoCode}
+
+\begin{DemoCode}{}
+%multiple coins, side by side, global height, simplebw style
+\EuroCoins[Style=bw]{2+1+0.5+0.2+0.1+0.05+0.02+0.01}
 \end{DemoCode}
 
 \begin{DemoCode}{}
@@ -376,8 +386,18 @@ Pour le cas de billets en éventail, la liste pourra être donnée sous la forme
 \end{DemoCode}
 
 \begin{DemoCode}{}
-%pièces multiples, côte à côte, taille uniforme
+%pièces multiples, côte à côte, taille uniforme, style simple
 \PiecesEuro{2+1+0.5+0.2+0.1+0.05+0.02+0.01}
+\end{DemoCode}
+
+\begin{DemoCode}{}
+%pièces multiples, côte à côte, taille uniforme, style full
+\PiecesEuro[Style=full]{2+1+0.5+0.2+0.1+0.05+0.02+0.01}
+\end{DemoCode}
+
+\begin{DemoCode}{}
+%pièces multiples, côte à côte, taille uniforme, style simplenb
+\PiecesEuro[Style=nb]{2+1+0.5+0.2+0.1+0.05+0.02+0.01}
 \end{DemoCode}
 
 \begin{DemoCode}{}
@@ -433,6 +453,7 @@ Pour le cas de billets en éventail, la liste pourra être donnée sous la forme
 
 \begin{quote}
 \begin{verbatim}
+0.1.1 : New filenames, according to TL rules
 0.1.0 : Initial version
 \end{verbatim}
 \end{quote}
